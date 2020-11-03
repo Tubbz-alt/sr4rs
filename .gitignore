@@ -1,0 +1,5 @@
+scratch
+__pycache__
+.ipynb_checkpoints
+data/*
+!data/readme.txt
