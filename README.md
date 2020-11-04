@@ -92,3 +92,17 @@ Should compare images with unsharp masking for subjective judging, as the bicubi
 
 Used image quality metrics -- *NOT* resolution in the, e.g modulation transfer function etc.
 For using this scheme as a preprocessing for *quantitive* image interpretation, MTF resolution might be more important
+
+### Project Structure
+#### src
+ - `ds.py` - Contains reader for directory of tif files as used in the UCMerced Dataset and a Dataset-wrapper which downsamples the input dataset
+ - `model.py` - SRResNet Model
+ - `util.py` - small utilities
+#### Notebooks
+ - `dataset.ipynb` - cursory glance at the dataset, with regards to image dimensions and histogram
+ - `train.ipynb` - training, creates weights and log file
+ - `results.ipynb` - plot results, creates all the images used in the Readme
+ 
+#### Results
+ - `weights` contains trained weights as state_dict's
+ - `images` contains all images used for this readme
