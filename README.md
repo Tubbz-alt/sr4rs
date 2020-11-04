@@ -1,5 +1,6 @@
 # sr4rs
-Using SRResNet on UCMerced Landuse Dataset
+Using SRResNet on UCMerced Landuse Dataset.
+Limited myself to just the SRResNet without GAN, tried learning on the dataset, using prelearned weights from https://github.com/sgrvinod and finally using those weights as a starting point to learn on the dataset (transfer).
 
 ## Model
 SRResNet (https://arxiv.org/abs/1609.04802), as implemented at https://github.com/sgrvinod/a-PyTorch-Tutorial-to-Super-Resolution
@@ -57,5 +58,37 @@ Image Quality assesment using MSE, PSNR and SSIM (https://en.wikipedia.org/wiki/
 ![](images/hist_transfer.png)
 
 ### Example images
+Low resolution is downscaled (see preprocessing) Ground Truth image, for plotting upscaled with nearest neighbour without any other interpolation. Comparision between SRResNet and Bicubic upscaling.
+#### Training on UCMerced
+![](images/landuse/img0.png)
+![](images/landuse/img1.png)
+![](images/landuse/img2.png)
+![](images/landuse/img8.png)
+![](images/landuse/img4.png)
+
+#### Using sgrvinod's prelearned weights
+![](images/sgrvinod/img0.png)
+![](images/sgrvinod/img1.png)
+![](images/sgrvinod/img2.png)
+![](images/sgrvinod/img8.png)
+![](images/sgrvinod/img4.png)
+
+#### Using prelearned weights and training on UCMerced
+![](images/transfer/img0.png)
+![](images/transfer/img1.png)
+![](images/transfer/img2.png)
+![](images/transfer/img8.png)
+![](images/transfer/img4.png)
+
+
+
 
 ### Discussion
+Limitations:
+ - I did not spend much time tuning hyperparameters
+ - Unfortunatly, in the validation phase my PSNR calculation was wrong (the images were scaled -1..1, the wikipedia definition works if the values start at 0)
+
+Should compare images with unsharp masking for subjective judging, as the bicubic rescaled images are generally less sharp and this dominates the subjective image quality.
+
+Used image quality metrics -- *NOT* resolution in the, e.g modulation transfer function etc.
+For using this scheme as a preprocessing for *quantitive* image interpretation, MTF resolution might be more important
