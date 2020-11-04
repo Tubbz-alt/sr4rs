@@ -1,4 +1,4 @@
-# sr4rs
+# sr4rs -- https://github.com/fzimmermann89/sr4rs/
 Using SRResNet on UCMerced Landuse Dataset.
 Limited myself to just the SRResNet without GAN, tried learning on the dataset, using prelearned weights from https://github.com/sgrvinod and finally using those weights as a starting point to learn on the dataset (transfer).
 
